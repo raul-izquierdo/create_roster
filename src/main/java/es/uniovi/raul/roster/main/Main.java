@@ -23,8 +23,11 @@ public class Main {
         List<Student> students;
         try {
             students = ExcelReader.readStudentsFromExcel(xlsFile);
+        } catch (ExcelContentException e) {
+            printError("The excel file content is invalid:\n" + e.getMessage());
+            return;
         } catch (Exception e) {
-            printError("Error reading the Excel file: " + e.getMessage());
+            printError("Error reading \"" + e.getMessage() + "\"");
             return;
         }
 
@@ -39,7 +42,7 @@ public class Main {
             printError("Error reading the groups file: " + e.getMessage());
             return;
         } catch (NoGroupsFileFound e) {
-            System.out.println(e.getMessage());
+            System.out.println("\nWARNING!!! " + e.getMessage());
             printGroupsFormat();
             System.out.println(
                     "Continuing without group restrictions, so all students will be included in the output.");

@@ -10,12 +10,11 @@ public final class Student {
     public Student(String name, String laboratory) {
         if (name == null || name.isBlank())
             throw new IllegalArgumentException("Name must not be null or blank. Value: '" + name + "'");
+        this.name = name;
 
         if (laboratory == null || !laboratory.startsWith(LAB_PREFIX))
             throw new IllegalArgumentException(
                     "Laboratory must start with '" + LAB_PREFIX + "'. Value: '" + laboratory + "'");
-
-        this.name = name;
 
         this.groupId = laboratory.substring(LAB_PREFIX.length());
         if (this.groupId.startsWith(ENGLISH_PREFIX))
