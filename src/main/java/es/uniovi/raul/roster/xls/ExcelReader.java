@@ -1,11 +1,13 @@
-package es.uniovi.eii.ds.xls;
+package es.uniovi.raul.roster.xls;
 
 import java.util.*;
 import java.io.*;
-import es.uniovi.eii.ds.model.Student;
+
 import static org.apache.poi.ss.usermodel.WorkbookFactory.create;
 import static org.apache.poi.ss.usermodel.CellType.STRING;
 import org.apache.poi.ss.usermodel.*;
+
+import es.uniovi.raul.roster.model.Student;
 
 public class ExcelReader {
 

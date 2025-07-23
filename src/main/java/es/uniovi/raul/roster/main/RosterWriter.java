@@ -1,7 +1,9 @@
-package es.uniovi.eii.ds.main;
+package es.uniovi.raul.roster.main;
 
-import es.uniovi.eii.ds.model.*;
 import java.util.*;
+
+import es.uniovi.raul.roster.model.*;
+
 import java.io.*;
 
 public class RosterWriter {

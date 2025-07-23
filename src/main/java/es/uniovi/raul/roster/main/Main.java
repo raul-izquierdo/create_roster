@@ -1,13 +1,13 @@
-package es.uniovi.eii.ds.main;
+package es.uniovi.raul.roster.main;
 
-import static es.uniovi.eii.ds.cli.CommandLine.getCommandLineArguments;
-import static es.uniovi.eii.ds.cli.CommandLine.printHelp;
-import static es.uniovi.eii.ds.cli.CommandLine.printError;
+import static es.uniovi.raul.roster.cli.CommandLine.*;
+import static es.uniovi.raul.roster.main.GroupLoader.*;
+import static es.uniovi.raul.roster.main.RosterWriter.*;
+
 import java.util.*;
-import static es.uniovi.eii.ds.main.GroupLoader.loadGroups;
-import static es.uniovi.eii.ds.main.RosterWriter.writeRoster;
-import es.uniovi.eii.ds.model.*;
-import es.uniovi.eii.ds.xls.ExcelReader;
+
+import es.uniovi.raul.roster.model.*;
+import es.uniovi.raul.roster.xls.ExcelReader;
 
 public class Main {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package es.uniovi.eii.ds.model;
+package es.uniovi.raul.roster.model;
 
 public record Student(String name, String laboratory) {
 

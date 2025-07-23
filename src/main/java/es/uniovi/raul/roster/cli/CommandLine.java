@@ -1,4 +1,4 @@
-package es.uniovi.eii.ds.cli;
+package es.uniovi.raul.roster.cli;
 
 import java.util.*;
 
@@ -42,7 +42,7 @@ public class CommandLine {
     public static void printHelp() {
         System.out.println(
                 """
-                        Usage: java -jar create_roster.jar [<sies.xls>] [-o <output_file>] [-g <groups_file>]
+                        Usage: java -jar roster.jar [<sies.xls>] [-o <output_file>] [-g <groups_file>]
 
                         Options:
                           <sies.xls>        The Excel file from SIES with the students in the subject.

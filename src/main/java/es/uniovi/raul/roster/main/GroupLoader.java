@@ -1,8 +1,10 @@
-package es.uniovi.eii.ds.main;
+package es.uniovi.raul.roster.main;
 
 import java.util.*;
+
+import es.uniovi.raul.roster.cli.CommandLine;
+
 import java.io.*;
-import es.uniovi.eii.ds.cli.CommandLine;
 
 public class GroupLoader {
     public static List<String> loadGroups(String filePath) throws IOException {

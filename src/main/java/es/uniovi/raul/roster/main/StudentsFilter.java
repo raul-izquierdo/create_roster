@@ -1,6 +1,6 @@
-package es.uniovi.eii.ds.main;
+package es.uniovi.raul.roster.main;
 
-import es.uniovi.eii.ds.model.Student;
+import es.uniovi.raul.roster.model.Student;
 
 @FunctionalInterface
 public interface StudentsFilter {
