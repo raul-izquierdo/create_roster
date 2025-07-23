@@ -15,7 +15,7 @@ public class GroupLoader {
         }
     }
 
-    private static List<String> loadGroupsIds(FileReader reader) throws IOException {
+    public static List<String> loadGroupsIds(Reader reader) throws IOException {
 
         List<String> groups = new ArrayList<>();
 

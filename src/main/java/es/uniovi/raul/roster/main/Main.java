@@ -34,6 +34,12 @@ public class Main {
         String groupsFile = cliArguments.get(GROUP_FILE_FLAG);
         try {
             var allowedGroupsIds = loadGroupsIds(groupsFile);
+
+            if (allowedGroupsIds.isEmpty()) {
+                System.out.println("\nERROR!!! The file is empty: " + groupsFile);
+                return;
+            }
+
             students = students.stream()
                     .filter(student -> allowedGroupsIds.contains(student.getGroupId()))
                     .toList();
