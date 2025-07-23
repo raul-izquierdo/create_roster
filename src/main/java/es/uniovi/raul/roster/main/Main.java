@@ -6,7 +6,7 @@ import static es.uniovi.raul.roster.main.RosterWriter.*;
 
 import java.util.*;
 
-import es.uniovi.raul.roster.model.*;
+import es.uniovi.raul.roster.model.Student;
 import es.uniovi.raul.roster.xls.ExcelReader;
 
 public class Main {
@@ -17,9 +17,9 @@ public class Main {
             return;
         }
 
-        String xlsFile = cliArguments.get("xls");
-        String outputFile = cliArguments.get("-o");
-        String groupsFile = cliArguments.get("-g");
+        String xlsFile = cliArguments.get(EXCEL_FILE);
+        String outputFile = cliArguments.get(OUTPUT_FILE_FLAG);
+        String groupsFile = cliArguments.get(GROUP_FILE_FLAG);
 
         List<Student> students;
         try {
