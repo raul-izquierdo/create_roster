@@ -65,6 +65,8 @@ public class CommandLine {
                         """);
 
         printGroupsFormat();
+        printCredits();
+
     }
 
     public static void printGroupsFormat() {
@@ -83,4 +85,11 @@ public class CommandLine {
                         """);
     }
 
+    public static void printCredits() {
+        System.out.println("""
+
+                Escuela de Ingenieria Informatica. Universidad de Oviedo.
+                Raúl Izquierdo Castanedo (raul@uniovi.es)
+                """);
+    }
 }

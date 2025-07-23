@@ -11,6 +11,7 @@ import es.uniovi.raul.roster.xls.ExcelReader;
 
 public class Main {
     public static void main(String[] args) {
+
         Map<String, String> cliArguments = getCommandLineArguments(args);
         if (cliArguments.containsKey("-h")) {
             printHelp();
@@ -41,6 +42,7 @@ public class Main {
         try {
             writeRoster(students, filter, outputFile);
             System.out.println("\nRoster generado en: " + outputFile);
+            printCredits();
         } catch (Exception e) {
             printError("Error escribiendo el fichero de salida: " + e.getMessage());
         }
