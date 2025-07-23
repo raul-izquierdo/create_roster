@@ -7,8 +7,6 @@ import static org.apache.poi.ss.usermodel.WorkbookFactory.create;
 import static org.apache.poi.ss.usermodel.CellType.STRING;
 import org.apache.poi.ss.usermodel.*;
 
-import es.uniovi.raul.roster.model.Student;
-
 public class ExcelReader {
 
     public static final String HEADER_DNI = "DNI";
@@ -48,14 +46,16 @@ public class ExcelReader {
             if (dniCol != null && alumnoCol != null && laboratoryCol != null) {
                 if (!(dniCol < alumnoCol && alumnoCol < laboratoryCol))
                     throw new ExcelFormatException(
-                            "Las cabeceras no están en el orden esperado en la fila " + (row.getRowNum() + 1) + ": '"
-                                    + HEADER_DNI + "', '" + HEADER_ALUMNO + "', '" + HEADER_LABORATORY + "'");
+                            String.format(
+                                    "The headers are not in the expected order in row %d: '%s', '%s', '%s'",
+                                    row.getRowNum() + 1, HEADER_DNI, HEADER_ALUMNO, HEADER_LABORATORY));
 
                 return new HeaderInfo(row.getRowNum(), alumnoCol, laboratoryCol);
             }
         }
-        throw new ExcelFormatException("No se encuentran las cabeceras en la misma fila: '" + HEADER_DNI + "', '"
-                + HEADER_ALUMNO + "', '" + HEADER_LABORATORY + "'");
+        throw new ExcelFormatException(String.format(
+                "The headers are not found in the same row: '%s', '%s', '%s'",
+                HEADER_DNI, HEADER_ALUMNO, HEADER_LABORATORY));
     }
 
     private static String getValue(Row row, int columnIndex) {
@@ -80,14 +80,15 @@ public class ExcelReader {
 
                 String name = getValue(row, header.alumnoCol);
                 if (name.isEmpty())
-                    break;
+                    break; // No more students in this file
 
                 String laboratory = getValue(row, header.laboratoryCol);
                 if (laboratory.isEmpty())
                     continue;
                 if (!laboratory.startsWith(LAB_PREFIX))
-                    throw new ExcelFormatException("El valor de la celda '" + HEADER_LABORATORY + "' ('" + laboratory
-                            + "') no empieza por el prefijo esperado: '" + LAB_PREFIX + "'. Fila: " + (rowIndex + 1));
+                    throw new ExcelFormatException(String.format(
+                            "The value of the cell '%s' ('%s') does not start with the expected prefix: '%s'. Row: %d",
+                            HEADER_LABORATORY, laboratory, LAB_PREFIX, rowIndex + 1));
 
                 students.add(new Student(name, laboratory));
             }
