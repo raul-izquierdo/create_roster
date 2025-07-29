@@ -71,3 +71,9 @@ i01-Jesus Patricia Menendez Soto
 ```
 
 Only students belonging to the allowed groups (if a groups file is provided) are included. Otherwise, all students are listed.
+
+## License
+
+MIT License
+
+Copyright (c) 2025 Raul Izquierdo Castanedo
